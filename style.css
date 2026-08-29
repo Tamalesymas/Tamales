@@ -204,6 +204,13 @@
   .btn-outline:hover{ background:var(--ink); color:var(--cream); transform:translateY(-2px); }
   .btn:focus-visible{ outline:3px solid var(--green-deep); outline-offset:3px; }
 
+  .delivery-ctas{
+    display:flex; flex-wrap:wrap; align-items:center;
+    gap:12px; margin-top:16px;
+  }
+  .delivery-ctas .btn{ padding:10px 20px; font-size:0.9rem; }
+  .delivery-ctas svg{ width:18px; height:18px; }
+
   .hero-photo{
     position:relative;
     overflow:hidden;
