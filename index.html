@@ -1,290 +1,528 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Candelaria — Tacos, Tortas & Más</title>
-<meta name="description" content="Tamales, tortas y antojitos mexicanos hechos como en casa. Conoce el menú completo de La Candelaria.">
-
-<link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png">
-<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Tamales La Candelaria · Tamales, tortas y más en Cuernavaca</title>
+<meta name="description" content="Tamales La Candelaria: casi 30 años de tamales, tortas y antojitos hechos como en casa. Lomas de la Selva, Cuernavaca, Morelos.">
+<meta name="theme-color" content="#00473c">
 <meta property="og:type" content="website">
-<meta property="og:title" content="La Candelaria — Tacos, Tortas & Más">
-<meta property="og:description" content="Tamales, tortas y antojitos mexicanos hechos como en casa. Conoce el menú completo.">
-<meta property="og:image" content="https://emiuwu64.github.io/Tamales/img/og-image.jpg">
-<meta property="og:url" content="https://emiuwu64.github.io/Tamales/">
-<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Tamales La Candelaria · Cuernavaca">
+<meta property="og:description" content="Tamales, tortas y antojitos hechos como en casa. Abierto toda la noche, de 8:30 p. m. a 8:30 a. m.">
+<meta property="og:url" content="https://tamalesymas.github.io/Tamales/">
+<meta property="og:image" content="https://tamalesymas.github.io/Tamales/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La Candelaria — Tacos, Tortas & Más">
-<meta name="twitter:description" content="Tamales, tortas y antojitos mexicanos hechos como en casa.">
-<meta name="twitter:image" content="https://emiuwu64.github.io/Tamales/img/og-image.jpg">
-
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;0,900;1,500;1,600&family=Public+Sans:wght@400;500;600;700;800&family=Permanent+Marker&display=swap">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400&family=Inter:wght@400;700&family=Fraunces:opsz,wght@9..144,200&display=swap" rel="stylesheet">
 
-<header class="site-nav">
+<style>
+/* =========================================================
+   SISTEMA VISUAL
+   Paleta: crema + verde bosque, con un solo color de acción (lima).
+   Tipos: Outfit 400 (titulares), Inter (texto), Fraunces 200 (acento fino).
+   ========================================================= */
+:root{
+  --deep-forest:#00473c;
+  --lime-glow:#e6ff55;
+  --sage-mist:#d8e5d6;
+  --warm-sand:#e8dcc6;
+  --cream:#f4f3e7;
+  --ink:#0e150e;
+  --warm-gray:#8c8c82;
+  --slate:#555555;
+
+  --font-display:"Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-text:"Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-thin:"Fraunces", Georgia, serif;
+
+  --r-img:20px; --r-card:24px; --r-badge:20px; --r-pill:9999px;
+  --shadow-xl:rgba(14,21,14,.4) 3px 3px 32px -10px;
+  --max:1200px;
+  --section:clamp(64px, 9vw, 120px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:80px; overflow-x:clip}
+body{
+  margin:0; background:var(--cream); color:var(--ink); overflow-x:clip;
+  font:400 16px/1.25 var(--font-text); letter-spacing:.017em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+.wrap{width:min(var(--max), 100% - 48px); margin-inline:auto}
+@media (max-width:600px){ .wrap{width:calc(100% - 32px)} }
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--deep-forest); outline-offset:3px; border-radius:6px}
+
+/* ---------- Tipografía ---------- */
+.eyebrow{
+  margin:0 0 20px; font:700 14px/1.29 var(--font-text);
+  letter-spacing:.05em; text-transform:uppercase; color:var(--deep-forest);
+}
+.display{
+  margin:0; font:400 clamp(52px, 7.4vw, 80px)/.88 var(--font-display);
+  color:var(--ink);
+}
+.h2{
+  margin:0; font:400 clamp(42px, 5.6vw, 70px)/.88 var(--font-display);
+  color:var(--ink);
+}
+.thin{
+  font:200 clamp(44px, 5vw, 64px)/1 var(--font-thin);
+  letter-spacing:-.047em; color:var(--deep-forest);
+}
+.lead{font-size:18px; line-height:1.38; letter-spacing:.03em; max-width:42ch; margin:24px 0 0}
+p{max-width:60ch}
+
+/* ---------- Botones ---------- */
+.pill{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border-radius:var(--r-pill); text-decoration:none; cursor:pointer;
+  font:700 16px/1 var(--font-text); letter-spacing:.017em;
+  transition:transform .15s ease, background .15s ease, color .15s ease;
+}
+.pill:hover{transform:translateY(-2px)}
+.pill-lime{background:var(--lime-glow); color:var(--ink); padding:16px 24px; box-shadow:var(--shadow-xl)}
+.pill-outline{border:2px solid var(--deep-forest); color:var(--deep-forest); padding:12px 20px; background:transparent}
+.pill-outline:hover{background:var(--deep-forest); color:var(--cream)}
+.ghost{
+  font:700 16px/1.25 var(--font-text); letter-spacing:.017em; color:var(--ink);
+  text-decoration:none; display:inline-flex; gap:6px; align-items:center;
+}
+.ghost::after{content:"→"; transition:transform .15s}
+.ghost:hover{text-decoration:underline; text-underline-offset:4px}
+.ghost:hover::after{transform:translateX(3px)}
+
+/* ---------- Navegación ---------- */
+.nav{position:sticky; top:0; z-index:50; background:var(--cream); border-bottom:1px solid rgba(14,21,14,.12)}
+.nav-row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:76px}
+.nav-l,.nav-r{display:flex; gap:32px; align-items:center}
+.nav-r{justify-content:flex-end}
+.nav a.link{
+  text-decoration:none; font:700 14px/1 var(--font-text); letter-spacing:.05em;
+  text-transform:uppercase; color:var(--ink);
+}
+.nav a.link:hover{color:var(--deep-forest); text-decoration:underline; text-underline-offset:6px}
+.logo{display:flex; align-items:center; gap:10px; text-decoration:none}
+.logo img{width:44px; height:44px}
+.logo span{font:700 24px/1 var(--font-text); letter-spacing:.01em; color:var(--deep-forest)}
+.nav .pill{font-size:14px; letter-spacing:.05em; text-transform:uppercase; padding:10px 18px}
+@media (max-width:860px){
+  .nav-row{grid-template-columns:1fr auto}
+  .nav-l, .nav a.link{display:none}
+}
+@media (max-width:380px){ .logo span{display:none} }
+
+/* ---------- Hero ---------- */
+.hero{padding-top:24px}
+.hero .wrap{position:relative}
+.hero-media{margin:0; border-radius:var(--r-card); overflow:hidden; height:clamp(420px, 72vh, 680px); background:var(--warm-sand)}
+.hero-media img{width:100%; height:100%; object-fit:cover; object-position:center 55%}
+.hero-panel{
+  position:absolute; left:24px; bottom:24px; max-width:600px;
+  background:rgba(244,243,231,.92); padding:40px; border-radius:var(--r-img);
+}
+.estado{
+  display:inline-flex; align-items:center; gap:8px; margin-top:24px;
+  padding:6px 14px; border-radius:var(--r-badge); border:1.5px solid var(--deep-forest);
+  font:700 12px/1.33 var(--font-text); letter-spacing:.05em; text-transform:uppercase; color:var(--deep-forest);
+}
+.estado i{width:8px; height:8px; border-radius:50%; background:currentColor; flex:none}
+.estado.abierto{background:var(--lime-glow); border-color:var(--lime-glow); color:var(--ink)}
+.acciones{display:flex; flex-wrap:wrap; gap:16px 28px; align-items:center; margin-top:28px}
+@media (max-width:760px){
+  .hero{padding-top:16px}
+  .hero-media{height:58vw; min-height:260px}
+  .hero-panel{position:relative; left:auto; bottom:auto; margin:-56px 12px 0; padding:28px 24px}
+}
+
+/* ---------- Bandas ---------- */
+section{padding-block:var(--section)}
+.band-sage{background:var(--sage-mist)}
+.band-sand{background:var(--warm-sand)}
+.band-forest{background:var(--deep-forest); color:var(--cream)}
+.cabeza{display:flex; justify-content:space-between; align-items:end; gap:24px 40px; flex-wrap:wrap; margin-bottom:48px}
+.cabeza p{margin:0; font-size:18px; line-height:1.33; max-width:38ch}
+
+/* ---------- Historia (split) ---------- */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px, 6vw, 80px); align-items:center}
+.split figure{margin:0; border-radius:var(--r-img); overflow:hidden}
+.split figure img{width:100%; aspect-ratio:4/5; object-fit:cover}
+.historia .thin{margin:28px 0 0}
+.historia p.texto{font-size:16px; line-height:1.38; margin:20px 0 0}
+.valores{margin:36px 0 0; padding:0; display:grid; gap:20px}
+.valores div{border-top:1px solid rgba(14,21,14,.2); padding-top:16px}
+.valores dt{font:700 18px/1.33 var(--font-text); letter-spacing:.03em}
+.valores dd{margin:4px 0 0; line-height:1.38}
+@media (max-width:860px){ .split{grid-template-columns:1fr} .historia figure{order:-1} }
+
+/* ---------- Platillos (tarjetas) ---------- */
+.cards{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, 1fr); gap:48px 24px}
+.card img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:var(--r-img)}
+.card-body{padding-top:20px}
+.card h3{margin:0; font:700 20px/1.2 var(--font-text); letter-spacing:.03em}
+.card p{margin:8px 0 16px; line-height:1.25}
+@media (max-width:860px){ .cards{grid-template-columns:repeat(2, 1fr)} }
+@media (max-width:520px){ .cards{grid-template-columns:1fr} }
+
+/* ---------- Menú ---------- */
+.tabs{
+  display:flex; gap:12px 40px; overflow-x:auto; padding:4px 0 20px; margin-bottom:32px;
+  scrollbar-width:none; border-bottom:1px solid rgba(14,21,14,.2);
+}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{
+  flex:none; position:relative; background:none; border:0; padding:0 0 18px; cursor:pointer;
+  font:400 clamp(28px, 3.4vw, 40px)/.85 var(--font-display); color:var(--ink); opacity:.45;
+  transition:opacity .15s;
+}
+.tabs button:hover{opacity:.8}
+.tabs button[aria-pressed="true"]{opacity:1}
+.tabs button[aria-pressed="true"]::after{
+  content:""; position:absolute; left:50%; bottom:0; width:8px; height:8px; margin-left:-4px;
+  border-radius:50%; background:var(--deep-forest);
+}
+.categorias{display:grid; grid-template-columns:repeat(3, 1fr); gap:48px 40px}
+.categorias.una{grid-template-columns:minmax(0, 560px)}
+.categoria h3{margin:0 0 12px; font:400 32px/1 var(--font-display); display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.categoria .tag{
+  font:700 12px/1.33 var(--font-text); letter-spacing:.05em; text-transform:uppercase;
+  border:1.5px solid var(--deep-forest); color:var(--deep-forest); border-radius:var(--r-badge); padding:3px 10px;
+}
+.categoria h4{margin:20px 0 4px; font:700 14px/1.29 var(--font-text); letter-spacing:.05em; text-transform:uppercase; color:var(--deep-forest)}
+.categoria ul{list-style:none; margin:0; padding:0}
+.categoria li{display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid rgba(14,21,14,.15); font-size:16px}
+.categoria li small{color:var(--slate); font-size:14px; text-align:right}
+.nota{margin:40px 0 0; font-size:14px; color:var(--slate)}
+@media (max-width:860px){ .categorias{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .categorias{grid-template-columns:1fr} }
+
+/* ---------- A domicilio ---------- */
+.domicilio .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end}
+.domicilio .h2{color:var(--cream)}
+.domicilio .eyebrow{color:var(--lime-glow)}
+.domicilio p{margin:24px 0 0; font-size:18px; line-height:1.33; opacity:.9}
+.apps{display:flex; flex-wrap:wrap; gap:12px}
+.apps .pill-outline{border-color:var(--cream); color:var(--cream)}
+.apps .pill-outline:hover{background:var(--cream); color:var(--deep-forest)}
+.apps .pill-lime{box-shadow:none}
+@media (max-width:860px){ .domicilio .wrap{grid-template-columns:1fr} }
+
+/* ---------- Visítanos ---------- */
+.datos{margin:40px 0 0; display:grid; gap:20px}
+.datos div{border-top:1px solid rgba(14,21,14,.2); padding-top:16px}
+.datos dt{font:700 14px/1.29 var(--font-text); letter-spacing:.05em; text-transform:uppercase; color:var(--deep-forest)}
+.datos dd{margin:6px 0 0; font-size:18px; line-height:1.33}
+.datos a{text-decoration:none; font-weight:700}
+.datos a:hover{text-decoration:underline}
+.mapa{border-radius:var(--r-img); overflow:hidden; aspect-ratio:4/4.4; background:var(--sage-mist)}
+.mapa iframe{width:100%; height:100%; border:0; display:block}
+.visita .acciones{margin-top:36px}
+
+/* ---------- Pie ---------- */
+footer{background:var(--deep-forest); color:var(--cream); padding-block:72px 32px}
+footer .wrap{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px}
+footer img{width:72px}
+footer h3{margin:0 0 16px; font:700 14px/1.29 var(--font-text); letter-spacing:.05em; text-transform:uppercase; color:var(--lime-glow)}
+footer ul{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline; text-underline-offset:4px}
+footer .marca p{margin:16px 0 0; max-width:30ch; line-height:1.38; opacity:.85}
+footer .legal{
+  grid-column:1/-1; border-top:1px solid rgba(244,243,231,.2); padding-top:24px; margin-top:16px;
+  font-size:14px; opacity:.75; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+}
+@media (max-width:760px){ footer .wrap{grid-template-columns:1fr 1fr} footer .marca{grid-column:1/-1} }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important; scroll-behavior:auto !important}
+}
+</style>
+</head>
+
+<body>
+<a class="sr-only" href="#menu">Saltar al menú</a>
+
+<!-- ======================= NAVEGACIÓN ======================= -->
+<header class="nav">
   <div class="wrap nav-row">
-    <a class="brand" href="#top">
-      <img src="img/logo.png" alt="Logotipo de La Candelaria" />
-      <span class="brand-text"><b>La Candelaria</b><span>Tacos · Tortas &amp; Más</span></span>
-    </a>
-    <nav class="links">
-      <a href="#menu">Menú</a>
-      <a href="#platillos">Platillos</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a href="#contacto">Síguenos</a>
+    <nav class="nav-l" aria-label="Secciones">
+      <a class="link" href="#cocina">Platillos</a>
+      <a class="link" href="#historia">Historia</a>
     </nav>
+    <a class="logo" href="#inicio" aria-label="Tamales La Candelaria, inicio">
+      <img src="img/logo.png" alt="" width="44" height="44">
+      <span>La Candelaria</span>
+    </a>
+    <div class="nav-r">
+      <a class="link" href="#menu">Menú</a>
+      <a class="link" href="#visitanos">Ubicación</a>
+      <a class="pill pill-outline" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pedir</a>
+    </div>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <svg class="hero-swoosh" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-          <path d="M20,150 C50,60 100,60 90,120 C84,155 130,165 150,120" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-        <p class="eyebrow"><span class="star">★</span> Cocina casera desde el fogón</p>
-        <h1 class="hero-title">TACOS<br><em>TORTAS</em><span class="amp">&amp; más</span></h1>
-        <p class="hero-sub">Tamales, tortas y antojitos mexicanos hechos como en casa, todos los días.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-solid" href="#menu">Ver el menú</a>
-          <a class="btn btn-outline" href="#contacto">Síguenos</a>
-        </div>
+<main id="inicio">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap">
+    <figure class="hero-media">
+      <img src="img/tamal-dulce-fresa.jpg" alt="Tamal dulce de fresa sobre su hoja de maíz" width="800" height="600">
+    </figure>
+    <div class="hero-panel">
+      <p class="eyebrow">Cocina casera desde el fogón · Cuernavaca</p>
+      <h1 class="display">Tamales calientitos, toda la noche.</h1>
+      <p class="lead">Casi 30 años de tamales, tortas y antojitos hechos como en casa, todos los días.</p>
+      <div class="estado" id="estado" role="status"><i aria-hidden="true"></i><span>Diario de 8:30 p. m. a 8:30 a. m.</span></div>
+      <div class="acciones">
+        <a class="pill pill-lime" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pide por WhatsApp</a>
+        <a class="ghost" href="#menu">Ver el menú</a>
       </div>
-      <div class="hero-photo">
-        <img src="img/torta-milanesa.jpg" alt="Torta de milanesa recién preparada de La Candelaria" />
-        <span class="hero-tag">Hecho al momento</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="gallery" id="platillos">
-    <div class="checker-strip"></div>
-    <div class="wrap section">
-      <div class="section-head">
-        <h2 class="section-title">Lo que sale de <span class="accent">la cocina</span></h2>
-        <p class="section-sub">Una probadita de nuestros platillos, tal como llegan a la mesa.</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item g1"><img src="img/torta-milanesa-aguacate.jpg" alt="Torta de milanesa, ya empezada" loading="lazy"><span class="gallery-cap">Torta de milanesa</span></div>
-        <div class="gallery-item g2"><img src="img/tacos-acorazados.jpg" alt="Tacos acorazados con arroz" loading="lazy"><span class="gallery-cap">Tacos acorazados</span></div>
-        <div class="gallery-item g3"><img src="img/tostada-tinga.jpg" alt="Tostadas de tinga con lechuga y queso" loading="lazy"><span class="gallery-cap">Tostada de tinga</span></div>
-        <div class="gallery-item g4"><img src="img/tamal-dulce-fresa.jpg" alt="Tamal dulce de fresa" loading="lazy"><span class="gallery-cap">Tamal dulce de fresa</span></div>
-        <div class="gallery-item g5"><img src="img/torta-jamon.jpg" alt="Torta de jamón con queso, lechuga y jitomate" loading="lazy"><span class="gallery-cap">Torta de jamón</span></div>
-        <div class="gallery-item g6"><img src="img/tacos-acorazados-curtido.jpg" alt="Tacos acorazados con curtido de zanahoria y jalapeño" loading="lazy"><span class="gallery-cap">Tacos acorazados con curtido</span></div>
-        <div class="gallery-item g7"><img src="img/tostada-pata.jpg" alt="Tostada de pata con lechuga y queso fresco" loading="lazy"><span class="gallery-cap">Tostada de pata</span></div>
-        <div class="gallery-item g8"><img src="img/torta-milanesa.jpg" alt="Torta de milanesa recién armada" loading="lazy"><span class="gallery-cap">Torta de milanesa</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="menu" id="menu">
-    <div class="wrap section">
-      <div class="section-head">
-        <h2 class="section-title">El menú <span class="accent">completo</span></h2>
-        <p class="menu-note"><span class="marker">Avísanos</span> si tu platillo va con todo o sin algún ingrediente.</p>
-        <div class="delivery-ctas">
-          <a class="btn btn-solid" href="https://www.didi-food.com/es-MX/food/store/5764607526004592480/?channel=10&amp;cityId=52170200&amp;lat=18.936528&amp;lng=-99.232878&amp;ddlCode=q9TJD0&amp;area=MX&amp;lang=es-MX&amp;appKey=ds&amp;dp_sub2=googlemap&amp;redirectType=2" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3-2a3 3 0 0 1 6 0v2H9V6Zm2 0v2h2V6a1 1 0 0 0-2 0Z"/></svg>
-            DiDi Food
-          </a>
-          <a class="btn btn-solid" href="https://www.rappi.com.mx/restaurantes/1930163172-tamales-la-candelaria" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3-2a3 3 0 0 1 6 0v2H9V6Zm2 0v2h2V6a1 1 0 0 0-2 0Z"/></svg>
-            Rappi
-          </a>
-          <a class="btn btn-solid" href="https://www.ubereats.com/mx/store/tamales-la-candelaria-el-camioncito-cuernavaca/ItILz7Q6XJuY6WOKVY_g_Q?diningMode=DELIVERY" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3-2a3 3 0 0 1 6 0v2H9V6Zm2 0v2h2V6a1 1 0 0 0-2 0Z"/></svg>
-            Uber Eats
-          </a>
-        </div>
-      </div>
-
-      <div class="menu-board">
-        <article class="menu-card c-tamales">
-          <h3>Tamales</h3>
-          <div class="items">
-            <ul>
-              <li>Maíz</li>
-              <li>Verdes</li>
-              <li>Rojos</li>
-              <li>Rajas</li>
-              <li>Dulce (piña, fresa)</li>
-              <li>Oaxaqueño</li>
-              <li>Mole (rojo)</li>
-              <li>Salsa verde</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="menu-card c-tortas">
-          <h3>Tortas</h3>
-          <div class="items">
-            <p>De milanesa</p>
-            <ul><li>Pollo</li><li>Res</li><li>Cubanas</li></ul>
-            <p>De tamal</p>
-            <ul><li>Hoja de maíz</li><li>Oaxaqueño</li></ul>
-            <p>Otras</p>
-            <ul>
-              <li>Jamón, queso blanco, queso de puerco o tinga</li>
-              <li>Combinadas</li>
-              <li>De barbacoa (solo sábado y domingo)</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="menu-card c-tacos">
-          <h3>Tacos acorazados</h3>
-          <div class="items">
-            <ul>
-              <li>Chile relleno</li>
-              <li>Torta de carne</li>
-              <li>Torta de papa</li>
-              <li>Milanesa (pollo o res)</li>
-              <li>Huevo</li>
-              <li>Adobo</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="menu-card c-tostadas">
-          <h3>Tostadas</h3>
-          <div class="items">
-            <ul>
-              <li>Pata</li>
-              <li>Tinga</li>
-              <li>Picadillo</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="menu-card c-quesadillas">
-          <h3>Quesadillas</h3>
-          <div class="items">
-            <ul>
-              <li>Doraditas de papa (orden de 4 piezas)</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="menu-card c-atoles">
-          <h3>Atoles</h3>
-          <div class="items">
-            <ul>
-              <li>Arroz con leche</li>
-              <li>Avena</li>
-              <li>Ciruela</li>
-              <li>Champurrado</li>
-              <li>Chocolate con leche</li>
-              <li>Ponche (temporada navideña)</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="location" id="ubicacion">
-    <div class="wrap section">
-      <div class="section-head">
-        <h2 class="section-title">Encuéntranos <span class="accent">aquí</span></h2>
-        <p class="section-sub">A un costado del Hospital Dr. José Parres, frente al Albergue Familiar.</p>
-      </div>
-      <div class="location-grid">
-        <div class="location-map">
-          <iframe
-            src="https://www.google.com/maps?q=Tamales+la+Candelaria,+Cuernavaca,+Mor.&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa de ubicación de La Candelaria"></iframe>
-        </div>
-        <div class="location-info">
-          <p class="location-address">
-            Gustavo Gómez Azcárate 101<br>
-            Col. Lomas de la Selva, 62270<br>
-            Cuernavaca, Morelos
-          </p>
-          <p class="location-hint">A un costado del Hospital Dr. José Parres, frente al Albergue Familiar.</p>
-          <a class="btn btn-solid" href="https://www.google.com/maps/dir/?api=1&destination=Tamales+la+Candelaria,+Cuernavaca,+Mor." target="_blank" rel="noopener">Cómo llegar</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer id="contacto">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="footer-brand">
-        <img src="img/logo.png" alt="Logotipo de La Candelaria" />
-        <span class="brand-text"><b>La Candelaria</b><span>Tacos · Tortas &amp; Más</span></span>
-      </div>
-    </div>
-
-    <div>
-      <h4>Síguenos</h4>
-      <ul class="foot-list">
-        <li>
-          <a href="https://www.facebook.com/lacandelaria.tamales" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.7h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V4.3c-.28-.04-1.23-.12-2.35-.12-2.32 0-3.9 1.42-3.9 4.02v2.1H7.7v3h2.65V21h3.15Z"/></svg>
-            Facebook
-          </a>
-        </li>
-        <li>
-          <a href="https://www.tiktok.com/@tamales_la_candelaria" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.2 1.9 3.7 4 4v2.9c-1.4 0-2.8-.4-4-1.2v6.4c0 3.3-2.7 5.9-5.9 5.9S4.7 17.4 4.7 14.1c0-3.2 2.6-5.8 5.7-5.9v3.1c-1.5.1-2.6 1.3-2.6 2.8 0 1.5 1.3 2.8 2.8 2.8s2.8-1.3 2.8-2.8V3h3.1Z"/></svg>
-            TikTok
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Pide en</h4>
-      <ul class="foot-list">
-        <li>
-          <a href="https://www.didi-food.com/es-MX/food/store/5764607526004592480/?channel=10&amp;cityId=52170200&amp;lat=18.936528&amp;lng=-99.232878&amp;ddlCode=q9TJD0&amp;area=MX&amp;lang=es-MX&amp;appKey=ds&amp;dp_sub2=googlemap&amp;redirectType=2" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3-2a3 3 0 0 1 6 0v2H9V6Zm2 0v2h2V6a1 1 0 0 0-2 0Z"/></svg>
-            DiDi Food
-          </a>
-        </li>
-        <li>
-          <a href="https://www.rappi.com.mx/restaurantes/1930163172-tamales-la-candelaria" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3-2a3 3 0 0 1 6 0v2H9V6Zm2 0v2h2V6a1 1 0 0 0-2 0Z"/></svg>
-            Rappi
-          </a>
-        </li>
-        <li>
-          <a href="https://www.ubereats.com/mx/store/tamales-la-candelaria-el-camioncito-cuernavaca/ItILz7Q6XJuY6WOKVY_g_Q?diningMode=DELIVERY" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3-2a3 3 0 0 1 6 0v2H9V6Zm2 0v2h2V6a1 1 0 0 0-2 0Z"/></svg>
-            Uber Eats
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Contacto</h4>
-      <ul class="foot-list">
-        <li>
-          <a href="tel:+527771422837">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6.3c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.1 2.1Z"/></svg>
-            777 142 2837
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
-  <div class="foot-bottom">La Candelaria · Tacos, tortas y más — pide directo por teléfono o síguenos en redes.</div>
+</section>
+
+<!-- ======================= PLATILLOS ======================= -->
+<section id="cocina">
+  <div class="wrap">
+    <div class="cabeza">
+      <div>
+        <p class="eyebrow">Hecho al momento</p>
+        <h2 class="h2">Lo que sale<br>de la cocina.</h2>
+      </div>
+      <p>Una probadita de nuestros platillos, tal como llegan a la mesa.</p>
+    </div>
+    <ul class="cards">
+      <li class="card">
+        <img src="img/tacos-acorazados-curtido.jpg" alt="Tacos acorazados con curtido de zanahoria y jalapeño" loading="lazy">
+        <div class="card-body"><h3>Acorazados con curtido</h3><p>Con curtido de zanahoria y jalapeño.</p><a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pídelos</a></div>
+      </li>
+      <li class="card">
+        <img src="img/torta-milanesa.jpg" alt="Torta de milanesa" loading="lazy">
+        <div class="card-body"><h3>Torta de milanesa</h3><p>De pollo o de res.</p><a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pídela</a></div>
+      </li>
+      <li class="card">
+        <img src="img/tacos-acorazados.jpg" alt="Tacos acorazados" loading="lazy">
+        <div class="card-body"><h3>Tacos acorazados</h3><p>Chile relleno, milanesa, adobo y más.</p><a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pídelos</a></div>
+      </li>
+      <li class="card">
+        <img src="img/tostada-tinga.jpg" alt="Tostada de tinga con lechuga y queso" loading="lazy">
+        <div class="card-body"><h3>Tostada de tinga</h3><p>Con lechuga, crema y queso.</p><a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pídela</a></div>
+      </li>
+      <li class="card">
+        <img src="img/torta-jamon.jpg" alt="Torta de jamón" loading="lazy">
+        <div class="card-body"><h3>Torta de jamón</h3><p>Con queso, lechuga y jitomate.</p><a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pídela</a></div>
+      </li>
+      <li class="card">
+        <img src="img/tostada-pata.jpg" alt="Tostada de pata" loading="lazy">
+        <div class="card-body"><h3>Tostada de pata</h3><p>Con lechuga y queso fresco.</p><a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Pídela</a></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= HISTORIA ======================= -->
+<section id="historia" class="band-sage historia">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Nuestra historia</p>
+      <h2 class="h2">Todo empezó con un tamal.</h2>
+      <p class="thin">casi 30 años</p>
+      <p class="texto">Hace casi tres décadas, los tamales fueron de lo primero que se vendió en La Candelaria. Gustaron tanto que se quedaron en el nombre, y a su alrededor fueron llegando las tortas, los tacos acorazados, las tostadas y los atoles.</p>
+      <p class="texto">Hoy seguimos en Lomas de la Selva, cocinando como en casa y sirviendo todo al momento.</p>
+      <dl class="valores">
+        <div><dt>Desde el fogón</dt><dd>Cocina casera, como se hace en casa.</dd></div>
+        <div><dt>Hecho al momento</dt><dd>Todo se prepara cuando lo pides.</dd></div>
+        <div><dt>Sabor de casa</dt><dd>Las mismas recetas de siempre.</dd></div>
+      </dl>
+    </div>
+    <figure>
+      <img src="img/torta-milanesa-aguacate.jpg" alt="Torta de milanesa con aguacate" loading="lazy" width="600" height="800">
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= MENÚ ======================= -->
+<section id="menu" class="band-sand">
+  <div class="wrap">
+    <div class="cabeza">
+      <div>
+        <p class="eyebrow">El menú completo</p>
+        <h2 class="h2">Lo de siempre.</h2>
+      </div>
+      <p>Avísanos si tu platillo va con todo o sin algún ingrediente.</p>
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Filtrar menú"></div>
+    <div class="categorias" id="categorias"></div>
+  </div>
+</section>
+
+<!-- ======================= A DOMICILIO ======================= -->
+<section class="band-forest domicilio">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">A domicilio</p>
+      <h2 class="h2">¿Se te antojó y no puedes venir?</h2>
+      <p>Pide por WhatsApp o desde tu app favorita.</p>
+    </div>
+    <div class="apps">
+      <a class="pill pill-lime" href="https://wa.me/527771422837" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="pill pill-outline" href="https://www.didi-food.com/es-MX/food/store/5764607526004592480/?channel=10&amp;cityId=52170200&amp;lat=18.936528&amp;lng=-99.232878&amp;area=MX&amp;lang=es-MX" target="_blank" rel="noopener">DiDi Food</a>
+      <a class="pill pill-outline" href="https://www.rappi.com.mx/restaurantes/1930163172-tamales-la-candelaria" target="_blank" rel="noopener">Rappi</a>
+      <a class="pill pill-outline" href="https://www.ubereats.com/mx/store/tamales-la-candelaria-el-camioncito-cuernavaca/ItILz7Q6XJuY6WOKVY_g_Q?diningMode=DELIVERY" target="_blank" rel="noopener">Uber Eats</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= VISÍTANOS ======================= -->
+<section id="visitanos" class="visita">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Encuéntranos aquí</p>
+      <h2 class="h2">Ven por los tuyos calientitos.</h2>
+      <dl class="datos">
+        <div><dt>Dirección</dt><dd>Gustavo Gómez Azcárate 101, Col. Lomas de la Selva, 62270, Cuernavaca, Morelos</dd></div>
+        <div><dt>Referencia</dt><dd>A un costado del Hospital Dr. José Parres, frente al Albergue Familiar.</dd></div>
+        <div><dt>Horario</dt><dd>Todos los días, de 8:30 p. m. a 8:30 a. m.</dd></div>
+        <div><dt>Teléfono</dt><dd><a href="tel:+527771422837">777 142 2837</a></dd></div>
+      </dl>
+      <div class="acciones">
+        <a class="pill pill-lime" href="https://www.google.com/maps/dir/?api=1&amp;destination=Tamales+la+Candelaria,+Cuernavaca,+Mor." target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="ghost" href="https://wa.me/527771422837" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps?q=Tamales+la+Candelaria,+Cuernavaca,+Mor.&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación de Tamales La Candelaria"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= PIE ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="marca">
+      <img src="img/logo.png" alt="Tamales La Candelaria" width="72" height="72">
+      <p>Tamales, tortas y más, toda la noche. Pide por WhatsApp o síguenos en redes.</p>
+    </div>
+    <div>
+      <h3>Síguenos</h3>
+      <ul>
+        <li><a href="https://www.facebook.com/lacandelaria.tamales" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@tamales_la_candelaria" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Pide en</h3>
+      <ul>
+        <li><a href="https://www.didi-food.com/es-MX/food/store/5764607526004592480/?channel=10&amp;cityId=52170200&amp;lat=18.936528&amp;lng=-99.232878&amp;area=MX&amp;lang=es-MX" target="_blank" rel="noopener">DiDi Food</a></li>
+        <li><a href="https://www.rappi.com.mx/restaurantes/1930163172-tamales-la-candelaria" target="_blank" rel="noopener">Rappi</a></li>
+        <li><a href="https://www.ubereats.com/mx/store/tamales-la-candelaria-el-camioncito-cuernavaca/ItILz7Q6XJuY6WOKVY_g_Q?diningMode=DELIVERY" target="_blank" rel="noopener">Uber Eats</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+527771422837">777 142 2837</a> · <a href="https://wa.me/527771422837" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li style="opacity:.75">Diario 8:30 p. m. – 8:30 a. m.</li>
+      </ul>
+    </div>
+    <div class="legal">
+      <span>© <span id="anio"></span> Tamales La Candelaria · Cuernavaca, Morelos</span>
+      <span>Hecho con masa, hoja y cariño</span>
+    </div>
+  </div>
 </footer>
 
+<script>
+/* =========================================================
+   ✏️  MENÚ — para agregar o quitar algo, edita esta lista
+   ========================================================= */
+const MENU = [
+  { id:"tamales", nombre:"Tamales", tag:"El original", grupos:[
+    { items:["Maíz","Verdes","Rojos","Rajas",["Dulce","piña o fresa"],"Oaxaqueño",["Mole","rojo"],"Salsa verde"] },
+  ]},
+  { id:"tortas", nombre:"Tortas", grupos:[
+    { titulo:"De milanesa", items:["Pollo","Res","Cubanas"] },
+    { titulo:"De tamal",    items:["Hoja de maíz","Oaxaqueño"] },
+    { titulo:"Otras",       items:[["Jamón, queso blanco, queso de puerco o tinga",""],"Combinadas",["De barbacoa","solo sáb. y dom."]] },
+  ]},
+  { id:"acorazados", nombre:"Tacos acorazados", grupos:[
+    { items:["Chile relleno","Torta de carne","Torta de papa",["Milanesa","pollo o res"],"Huevo","Adobo"] },
+  ]},
+  { id:"tostadas", nombre:"Tostadas", grupos:[
+    { items:["Pata","Tinga","Picadillo"] },
+  ]},
+  { id:"quesadillas", nombre:"Quesadillas", grupos:[
+    { items:[["Doraditas de papa","orden de 4 piezas"]] },
+  ]},
+  { id:"atoles", nombre:"Atoles", grupos:[
+    { items:["Arroz con leche","Avena","Ciruela","Champurrado","Chocolate con leche",["Ponche","temporada navideña"]] },
+  ]},
+];
+
+/* ✏️ HORARIO (formato 24 h). Abre en la noche y cierra en la mañana. */
+const HORARIO = { abre: 20.5, cierra: 8.5 };   // 8:30 p. m. → 8:30 a. m.
+
+/* =========================================================
+   Lógica de la página (no hace falta tocar)
+   ========================================================= */
+const $ = (s, c=document) => c.querySelector(s);
+$("#anio").textContent = new Date().getFullYear();
+
+// Mensaje prellenado de WhatsApp
+document.querySelectorAll("a[href^='https://wa.me/']").forEach(a => {
+  a.href += "?text=" + encodeURIComponent("¡Hola, La Candelaria! Quiero hacer un pedido");
+});
+
+// ¿Abierto ahora? (hora de Cuernavaca; el horario cruza la medianoche)
+(() => {
+  const ahora = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Mexico_City" }));
+  const h = ahora.getHours() + ahora.getMinutes() / 60;
+  const el = $("#estado"), txt = $("span", el);
+  if (h >= HORARIO.abre || h < HORARIO.cierra) {
+    el.classList.add("abierto");
+    txt.textContent = "Abierto ahora · hasta 8:30 a. m.";
+  } else {
+    txt.textContent = "Cerrado · abrimos hoy a las 8:30 p. m.";
+  }
+})();
+
+// Menú con pestañas
+const tabs = $("#tabs"), cont = $("#categorias");
+function pintarMenu(f = "todo") {
+  cont.innerHTML = "";
+  cont.classList.toggle("una", f !== "todo");
+  MENU.filter(c => f === "todo" || c.id === f).forEach(c => {
+    const art = document.createElement("article");
+    art.className = "categoria";
+    art.innerHTML = `<h3>${c.nombre}${c.tag ? `<span class="tag">${c.tag}</span>` : ""}</h3>` +
+      c.grupos.map(g => `${g.titulo ? `<h4>${g.titulo}</h4>` : ""}<ul>${
+        g.items.map(it => Array.isArray(it)
+          ? `<li><span>${it[0]}</span>${it[1] ? `<small>${it[1]}</small>` : ""}</li>`
+          : `<li><span>${it}</span></li>`).join("")
+      }</ul>`).join("");
+    cont.appendChild(art);
+  });
+}
+[{id:"todo", nombre:"Todo"}, ...MENU].forEach((c, i) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = c.nombre;
+  b.setAttribute("aria-pressed", i === 0);
+  b.addEventListener("click", () => {
+    tabs.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    pintarMenu(c.id);
+  });
+  tabs.appendChild(b);
+});
+pintarMenu();
+</script>
 </body>
 </html>
