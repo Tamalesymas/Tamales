@@ -121,8 +121,8 @@ p{max-width:60ch}
 /* ---------- Hero ---------- */
 .hero{padding-top:24px}
 .hero .wrap{position:relative}
-.hero-media{margin:0; border-radius:var(--r-card); overflow:hidden; height:clamp(420px, 72vh, 680px); background:var(--warm-sand)}
-.hero-media img{width:100%; height:100%; object-fit:cover; object-position:center 40%}
+.hero-media{margin:0; border-radius:var(--r-card); overflow:hidden; aspect-ratio:3/2; background:var(--warm-sand)}
+.hero-media img{width:100%; height:100%; object-fit:cover; object-position:center 45%}
 .hero-panel{
   position:absolute; right:24px; bottom:24px; max-width:500px;
   background:rgba(244,243,231,.92); padding:40px; border-radius:var(--r-img);
@@ -135,10 +135,12 @@ p{max-width:60ch}
 .estado i{width:8px; height:8px; border-radius:50%; background:currentColor; flex:none}
 .estado.abierto{background:var(--lime-glow); border-color:var(--lime-glow); color:var(--ink)}
 .acciones{display:flex; flex-wrap:wrap; gap:16px 28px; align-items:center; margin-top:28px}
+@media (max-width:1000px){
+  .hero-media{aspect-ratio:4/3}
+  .hero-panel{position:relative; right:auto; bottom:auto; max-width:none; margin:-56px 12px 0; padding:28px 24px}
+}
 @media (max-width:760px){
   .hero{padding-top:16px}
-  .hero-media{height:58vw; min-height:260px}
-  .hero-panel{position:relative; right:auto; bottom:auto; max-width:none; margin:-56px 12px 0; padding:28px 24px}
 }
 
 /* ---------- Bandas ---------- */
